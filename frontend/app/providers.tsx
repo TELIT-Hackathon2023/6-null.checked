@@ -16,10 +16,7 @@ export default function Providers({
       <ClerkProvider
         appearance={{
           // baseTheme: resolvedTheme === "dark" ? dark : undefined,
-          baseTheme: dark,
-          elements: {
-            formButtonPrimary: "bg-primary hover:bg-primary/90",
-          },
+          // baseTheme: dark,
         }}
         signInUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL}
         signUpUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_UP_URL}
