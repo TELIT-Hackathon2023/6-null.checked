@@ -10,7 +10,7 @@ const Navbar = () => {
   const { isSignedIn } = useAuth();
   
   return (
-    <div className="sticky flex top-0 w-full justify-between items-center py-2 px-4 backdrop-blur bg-background/10 border-b-[0.5px]">
+    <div className="sticky flex z-30 top-0 w-full justify-between items-center py-2 px-12 backdrop-blur bg-background/10 border-b">
       <Link href="/" className="flex items-center">
         <h1 className="text-2xl font-bold">
           NONAME
