@@ -38,6 +38,6 @@ def process_pdf(url, output_filename):
 
 
 if __name__ == '__main__':
-    url = 'https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/2015_RFPWebsiteRedesignRepost.pdf?raw=true'
+    url = 'https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/2015_RFPWebsiteRedesignRepost.pdf'
     output_filename = 'data/output.json'
-    process_pdf(url, output_filename)
+    process_pdf(url+'?raw=true', output_filename)
