@@ -2,6 +2,7 @@ import requests
 import fitz
 import json
 import io
+import re
 
 
 def download_pdf(url):
@@ -27,11 +28,35 @@ def save_chunks_as_json(chunks, filename):
     with open(filename, 'w', encoding='utf-8') as file:
         json.dump(chunks, file, ensure_ascii=False, indent=4)
 
+def clean_text(chunks):
+    cleaned_chunks = []
+
+    for chunk in chunks:
+        # Remove unnecessary whitespace
+        chunk = re.sub(r'\s+', ' ', chunk)
+        # Remove digits (like page numbers)
+        chunk = re.sub(r'\b\d+\b', '', chunk)
+        # Remove URLs
+        chunk = re.sub(r'http[s]?://\S+', '', chunk)
+        # Remove or replace special characters (example: replacing & with 'and')
+        chunk = chunk.replace('&', 'and')
+        # Correct common OCR errors (example: replacing '0' with 'O')
+        chunk = chunk.replace('0', 'O')
+        # Filter out email addresses
+        chunk = re.sub(r'\S+@\S+', '', chunk)
+        # Remove repeated characters (more than 2)
+        chunk = re.sub(r'(.)\1{2,}', r'\1', chunk)
+
+        cleaned_chunks.append(chunk.strip())
+
+    return cleaned_chunks
+
 def process_pdf(url, output_filename):
     try:
         pdf_stream = download_pdf(url)
         text = extract_text_from_pdf(pdf_stream)
         chunks = chunk_text(text)
+        chunks = clean_text(chunks)
         save_chunks_as_json(chunks, output_filename)
     except Exception as e:
         print(f"An error occurred: {e}")
