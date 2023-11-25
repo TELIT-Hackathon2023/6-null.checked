@@ -32,7 +32,7 @@ const components: { title: string; href: string; }[] = [
 
 export function NavMenu() {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="hidden md:block">
       <NavigationMenuList>
         {components.map((component) => (
           <NavigationMenuItem key={component.title}>
