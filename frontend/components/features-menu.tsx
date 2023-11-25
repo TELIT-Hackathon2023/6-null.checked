@@ -1,38 +1,40 @@
 "use client"
 
 import * as React from "react"
-import Link from "next/link"
+
+import { BarChart3Icon, ClipboardListIcon, GaugeIcon, LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu"
 
-const features: { title: string; href: string; }[] = [
+
+export const features: { title: string; description: string; icon: LucideIcon;}[] = [
   {
     title: "Summary",
-    href: "/getting-started",
+    description: "Summary of the matching process",
+    icon: ClipboardListIcon,
   },
   {
     title: "Matching Score",
-    href: "/dashboard",
+    description: "Shows how relevant RFP is to your company",
+    icon: GaugeIcon,
   },
   {
     title: "Matching Dashboard",
-    href: "/reviews",
+    description: "Shows dashboard of RFP influence to your company",
+    icon: BarChart3Icon,
   },
 ]
 
-export function FeaturesMenu() {
-  const [currentFeature, setCurrentFeature] = React.useState(features[0])
+interface Props {
+  currentFeature: { title: string; description: string; icon: LucideIcon;}, 
+  setCurrentFeature: any
+}
 
+export function FeaturesMenu({ 
+  currentFeature, 
+  setCurrentFeature 
+}: Props
+) {
   return (
     <div className="flex w-full max-h-lg items-center justify-between border-b cursor-pointer select-none">
       {features.map((feature, index) => (

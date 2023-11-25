@@ -112,9 +112,9 @@ export function ScrollAreaProposal() {
     <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
       <div className="p-4">
         <h4 className="mb-4 text-sm font-medium leading-none">Requests for proposals</h4>
-        {proposals.map((proposal) => (
+        {proposals.map((proposal, index) => (
           <>
-            <div key={proposal.title} className="text-sm">
+            <div key={index} className="text-sm">
               {proposal.title}
             </div>
             <Separator className="my-2" />

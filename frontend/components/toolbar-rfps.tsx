@@ -15,7 +15,7 @@ const ToolbarRFP = () => {
           // }
           className="w-full"
         />
-      <Button>Upload proposal</Button>
+      <Button>Upload file</Button>
     </div>
   )
 }
