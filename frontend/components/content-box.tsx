@@ -23,32 +23,32 @@ interface Props {
 export const ColorRanges = [
   {
     color: "from-red-500 to-red-500/80",
-    value: 51,
+    value: 5,
     match: "Bad Match",
   },
   {
     color: "from-red-500 to-orange-500",
-    value: 61,
+    value: 6,
     match: "Low Match",
   },
   {
     color: "from-orange-500 to-yellow-500",
-    value: 71,
+    value: 7,
     matcj: "Medium Match",
   },
   {
-    color: "from-yellow-500 to-green-500",
-    value: 81,
+    color: "from-yellow-500 to-secondary",
+    value: 8,
     match: "High Match",
   },
   {
-    color: "from-green-500 to-primary/80",
-    value: 91,
+    color: "from-secondary to-primary/80",
+    value: 9,
     match: "Very High Match",
   },
   {
     color: "from-primary to-primary/60",
-    value: 100,
+    value: 10,
     match: "Perfect Match",
   },
 ]
@@ -57,10 +57,11 @@ const ContentBox = ({
   currentFeature, 
 }: Props
 ) => {
-  let score = 92;
+  let score = 9;
   const color = ColorRanges.find((range) => range.value >= score)?.color;
   
-  let match = ColorRanges.find((range) => range.value >= score)?.match;
+  var match = ColorRanges.find((range) => range.value >= score)?.match;
+
 
   ChartJS.register(
     CategoryScale,
@@ -111,8 +112,8 @@ const ContentBox = ({
       {currentFeature.title === "Matching Score" && (
         <div className="flex flex-col items-center justify-center">
           <div className={cn("flex items-center justify-center w-40 h-40 rounded-full bg-gradient-to-r background-animate", color)}>
-            <div className="text text-4xl font-bold">
-              {score}%
+            <div className="text text-7xl font-bold">
+              {score}
             </div>
           </div>
           <div className="text-lg font-bold mt-4">{match}</div>
@@ -122,25 +123,23 @@ const ContentBox = ({
         <div className="flex flex-col items-center justify-center">
           <Bar
             data={{
-              labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+              labels: ['Score'],
               datasets: [
                 {
-                  label: 'Dataset 1',
-                  borderColor: 'rgb(54, 162, 235)',
-                  borderWidth: 2,
-                  data: [0, 10, 5, 2, 20, 30, 45],
+                  label: 'Technical Matching Score',
+                  data: [score],
+                  backgroundColor: 'rgb(224, 99, 132)',
                 },
                 {
-                  label: 'Dataset 2',
+                  label: 'Function Matching Score',
                   backgroundColor: 'rgb(255, 99, 132)',
-                  data: [10, 20, 30, 40, 50, 60, 70],
+                  data: [6],
                   borderColor: 'white',
-                  borderWidth: 2,
                 },
                 {
-                  label: 'Dataset 3',
+                  label: 'Domain Matching Score',
                   backgroundColor: 'rgb(75, 192, 192)',
-                  data: [10, 20, 30, 40, 50, 60, 70],
+                  data: [2],
                 }
               ],
             }}
@@ -157,7 +156,6 @@ const ContentBox = ({
               }
             }}
           />
-          <div className="text-primary text-sm font-bold mt-4">High Match</div>
         </div>
       )}
     </div>
