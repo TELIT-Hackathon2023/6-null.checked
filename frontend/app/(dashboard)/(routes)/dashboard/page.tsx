@@ -2,8 +2,8 @@
 
 export default function Dashboard() {
   return (
-    <section className="h-full">
-      DASHBOARD
+    <section className="flex flex-col w-full h-screen ">
+      asd
     </section>
   )
 }

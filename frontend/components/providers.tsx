@@ -16,7 +16,7 @@ export default function Providers({
       <ClerkProvider
         appearance={{
           // baseTheme: resolvedTheme === "dark" ? dark : undefined,
-          baseTheme: dark,
+          // baseTheme: dark,
           elements: {
             formButtonPrimary: "bg-primary hover:bg-primary/90",
           },
