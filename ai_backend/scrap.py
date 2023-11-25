@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import json
 from pprint import pprint
 
 
@@ -43,4 +44,4 @@ def scrape_t_systems(url):
 
 if __name__ == "__main__":
     t_systems_data, _ = scrape_t_systems("https://www.t-systems.com/de/en")
-    pprint(t_systems_data)
+    json.dump(t_systems_data, open("data/t_systems_data.json", "w"), indent=4)
