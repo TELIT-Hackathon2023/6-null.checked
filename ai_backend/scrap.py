@@ -1,5 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
+from pprint import pprint
+
 
 def scrape_t_systems(url):
     response = requests.get(url)
@@ -39,5 +41,6 @@ def scrape_t_systems(url):
     return t_systems_info, description
 
 
-t_systems_data = scrape_t_systems("https://www.t-systems.com/de/en")
-print(t_systems_data[0].keys())
+if __name__ == "__main__":
+    t_systems_data, _ = scrape_t_systems("https://www.t-systems.com/de/en")
+    pprint(t_systems_data)
