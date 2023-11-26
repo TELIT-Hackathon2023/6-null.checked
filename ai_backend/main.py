@@ -21,7 +21,7 @@ def get_recommendations(company_url, pdf_url, company_data=None, pdf_data=None):
     scores, summary = run_llm()
     scores = extract_categories_and_scores(scores)
     scores = [{"score": scores[key], "section": key} for key in scores]
-    result = {"overall_score": sum([s["score"] for s in scores]/len(scores)), "summary": summary, "matching_scores": scores}
+    result = {"overall_score": sum([s["score"] for s in scores])/len(scores), "summary": summary, "matching_scores": scores}
     return result
 
 
@@ -30,4 +30,4 @@ if __name__ == "__main__":
     pdf_url = "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/170609_student.pdf"
     result_name = pdf_url.split("/")[-1].split(".")[0]
     json.dump(get_recommendations(company_url, pdf_url, company_data="data/t_systems_data.json", pdf_data="data/output.json"), 
-              open(f"data/{result_name}", "w"), indent=4)
+              open(f"data/{result_name}.json", "w"), indent=4)

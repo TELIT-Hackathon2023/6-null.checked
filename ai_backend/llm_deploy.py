@@ -2,51 +2,54 @@ from openai import OpenAI
 import json
 
 
+system_instructions = """
+    - You will receive a series of data chunks, each labeled as "RFP Data Chunk #X", where X is the chunk's number.
+    - Generate a brief version of the chunk's content with a header "RFP Data Chunk #X".
+"""
+summary_prompt = """
+    Using all your obtained knowledge from the RFP chunks, 
+    make a summary with the key information on a project described in the RFP.
+"""
+brief_chunks = []
+
+
 def get_client():
     with open("api-key.txt", "r") as f:
         client = OpenAI(api_key=f.read().strip())
     return client
 
-def send_sys_instructions(client):
-    system_instructions = """
-    - You will receive a series of data chunks, each labeled as "RFP Data Chunk #X", where X is the chunk's number.
-    - Memorize the details in each chunk sequentially as they are provided.
-    - Don't stop memorizing until I send a word "STOPPY" to you.
-    - After that, ask for the next instructions.
-    """
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[{"role": "system", "content": system_instructions}],
-    )
-    print('Gotten response from system instructions:')
-    print(response.choices[0].message.content)
-
 def send_rfp_data(client):
     with open("data/output.json", "r", encoding="utf-8") as f:
         rfp_data = json.load(f)
 
-    for i, chunk in enumerate(rfp_data[:8]):
-        response = client.chat.completions.create(
+    for i, chunk in enumerate(rfp_data[:5]):
+        brief_chunk = client.chat.completions.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "user", "content": f"RFP Data Chunk #{i}\n{chunk}"}],
+            messages=[{"role": "system", "content": system_instructions}]+\
+                     [{"role": "user", "content": f"RFP Data Chunk #{i}\n{chunk}"}],
+        )
+        brief_chunks.append(
+            {"role": "user", "content": brief_chunk.choices[0].message.content}
         )
         print(f'Gotten response from RFP Data Chunk #{i}...')
 
-def send_stoppy(client):
+def get_summary(client):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
-        messages=[
-            {"role": "user", "content": "STOPPY"},
-            {"role": "user", "content": "Ask for a company's data which contains descriptions of the company's operational fields and activities. After getting, the data wait for the next instructions."},
-        ],
+        messages=[{"role": "system", "content": summary_prompt}] +\
+                 brief_chunks
     )
+    print('Gotten response from the summary forming:')
+    print(response.choices[0].message.content)
+    summary = response.choices[0].message.content
+    
+    return summary
 
-def get_information(client):
+def get_scores(client):
     with open("data/t_systems_data.json", "r", encoding="utf-8") as f:
         company_data = str(json.load(f))
 
     compare_instructions = """
-    Next instructions:
     - Compare the memorized RFP data with the provided company's data.
     - Evaluate the similarity between RFP and the company's data in the following categories: Technology, Functional, Compliance, Domain.
     - Assign a similarity score for each category.
@@ -54,39 +57,25 @@ def get_information(client):
     - Present the results in the following format: Category_Name=Score.
     """
 
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "user", "content": company_data},
-        ],
-    )
+    scores = None
+    while not scores:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": compare_instructions},
+                {"role": "user", "content": "RFP Data:\n"+'\n'.join([chunk["content"] for chunk in brief_chunks])},
+                {"role": "user", "content": f"Company Data:\n{company_data}"}
+            ],
+        )
+        print('Gotten response from the scores evaluation:')
+        print(response.choices[0].message.content)
+        scores = response.choices[0].message.content
 
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "user", "content": compare_instructions},
-        ],
-    )
-
-    print('Gotten response from the scores evaluation:')
-    print(response.choices[0].message.content)
-    scores = response.choices[0].message.content
-
-    response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "user", "content": "Using all your obtained knowledge about RFP, make a summar with the key information, presented in a condensed form"},
-        ],
-    )
-
-    print('Gotten response from the summary forming:')
-    print(response.choices[0].message.content)
-    summary = response.choices[0].message.content
-    return scores, summary
+    return scores
 
 def run_llm():
     client = get_client()
-    send_sys_instructions(client)
     send_rfp_data(client)
-    send_stoppy(client)
-    return get_information(client)
+    summary = get_summary(client)
+    scores = get_scores(client)
+    return scores, summary

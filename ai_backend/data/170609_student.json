@@ -1,0 +1,22 @@
+{
+    "overall_score": 6.25,
+    "summary": "This request for proposal (RFP) is for the design, development, and implementation of an Online Integrated Student Life Cycle Management System for the National Institute of Electronics and Information Technology (NIELIT) Ministry of Electronics and IT (MeitY), Government of India. The RFP can be accessed and submitted electronically through the Central Public Procurement Portal (CPP Portal). Tender documents in hard copy will not be accepted.\n\nThe RFP provides detailed information on various chapters and annexures, including abbreviations and definitions, the introduction to NIELIT, terms of reference, deliverables expected from bidders, bid evaluation criteria, and general terms and conditions.\n\nThe schedule for the RFP includes important dates such as the start and closing dates for document download, the last date for receipt of pre-bid queries, the pre-bid conference, the dates for bid submission, and the opening of technical and financial bids. The validity of the Request for Proposal (RFP) and Financial Bid is specified in terms of days from the date of bid submission.\n\nThe RFP also provides an introduction to NIELIT, which is an autonomous scientific society under the Ministry of Electronics and Information Technology, responsible for human resource development and related activities in the field of Information, Electronics, and Communication Technologies (IECT). NIELIT has various training partners, accredited institutes, and centers across India, and is involved in both formal and non-formal education and training programs in IECT.\n\nAdditionally, the RFP provides a list of abbreviations and acronyms commonly used in the document, including terms such as BRMS, NDML, NIC, NICSI, NIELIT, NIT, NSDA, PC, RFP, SAD, SDD, SEI, SLA, SoW, SRS, SSP, URS, and UAT.",
+    "matching_scores": [
+        {
+            "score": 7.0,
+            "section": "Technology"
+        },
+        {
+            "score": 6.0,
+            "section": "Functional"
+        },
+        {
+            "score": 4.0,
+            "section": "Compliance"
+        },
+        {
+            "score": 8.0,
+            "section": "Domain"
+        }
+    ]
+}
