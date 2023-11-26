@@ -87,4 +87,71 @@ TEST_DATA_DICT = {
             }
         ]
     },
+    "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%2032101-2023-002%20Access%20Control.pdf": {
+        "overall_score": 1.25,
+        "summary": "The primary objectives and goals of the project are to procure an Access Control System for the State of Tennessee Department of General Services at a competitive price, while ensuring fairness, nondiscrimination, and compliance with regulatory standards. \n\nKey technological requirements and specifications include the need for a comprehensive access control system that provides security and restricts unauthorized access to designated areas. The system should be scalable, user-friendly, and compatible with existing infrastructure.\n\nCritical functional needs and desired outcomes include the ability to manage and monitor access permissions, generate detailed reports, integrate with other security systems, and provide seamless user experience for employees and visitors. The system should also support remote access management and provide real-time notifications.\n\nCompliance and regulatory standards mentioned include the emphasis on nondiscrimination and the prohibition of unauthorized contact with state employees. The State expects all responses to adhere to the specified guidelines and deliverables.\n\nThe specific industry/domain focus of the project is security and access control systems for government facilities.\n\nThe major deliverables include the provision of a comprehensive access control system with installation, training, and ongoing technical support. The expected timelines for the project are outlined in the RFP, with a contract period of 60 months.\n\nIn summary, the State of Tennessee Department of General Services is seeking proposals for an Access Control System to enhance security and restrict unauthorized access in government facilities. The system should be scalable, user-friendly, and compliant with regulatory standards. The project aims to procure goods or services at competitive prices while ensuring fairness and nondiscrimination. The major deliverables include the installation, training, and ongoing support of the access control system.",
+        "matching_scores": [
+            {
+                "score": 2.0,
+                "section": "Technology"
+            },
+            {
+                "score": 1.0,
+                "section": "Functional"
+            },
+            {
+                "score": 1.0,
+                "section": "Compliance"
+            },
+            {
+                "score": 1.0,
+                "section": "Domain"
+            }
+        ]
+    },
+    "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%2032901-31328-23%20Final.pdf": {
+        "overall_score": 1.0,
+        "summary": "The primary objectives of this project are to secure clinical services for the State of Tennessee's Department of Correction. The State aims to provide a multidisciplinary treatment program that includes primary care, specialty care, dental, optometry, and behavioral health services to its inmate population.\n\nKey technological requirements and specifications include the need for comprehensive healthcare management systems, electronic medical records systems, and coordination of pharmacy services. The contractor is expected to provide necessary supplies, equipment, and staffing, including board-certified psychiatrists, mid-levels, nurses, administrators, and support staff.\n\nThe critical functional needs and desired outcomes are to ensure the provision of high-quality healthcare services to the inmate population, including triage assessments, medication counseling, psychiatric services, psychological services, substance abuse treatment, case management, and therapeutic recreational activities. The contractor must also coordinate with pharmacy services to ensure proper medication management.\n\nCompliance and regulatory standards mentioned include the requirement for the contractor to comply with nondiscrimination policies based on protected classifications and comply with state laws and regulations. The State of Tennessee Department of Corrections holds full accreditation by the American Correctional Association.\n\nThe specific industry/domain focus of the project is the provision of comprehensive healthcare and behavioral healthcare services within a correctional facility setting. The services will be provided to over 20,000 inmates housed in various facilities managed by the State, including male and female inmates.\n\nMajor deliverables of the project include the management and provision of primary care, specialty care, dental, optometry, and behavioral health services to the inmate population. Timelines for the project include a response deadline, evaluation periods for technical responses and cost proposals, negotiations (optional), and the deadline for the contractor to sign the contract and provide a performance bond.\n\nIn summary, the project aims to secure clinical services for the State of Tennessee's Department of Correction, focusing on the provision of comprehensive healthcare and behavioral healthcare services to the inmate population. The contractor must comply with regulatory standards, provide necessary technological infrastructure, and deliver high-quality services within specified timelines.",
+        "matching_scores": [
+            {
+                "score": 3.0,
+                "section": "Technology"
+            },
+            {
+                "score": 1.0,
+                "section": "Functional"
+            },
+            {
+                "score": 0.0,
+                "section": "Compliance"
+            },
+            {
+                "score": 0.0,
+                "section": "Domain"
+            }
+        ]
+    },
+    "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%20Empanelment_SW_2022.pdf": {
+        "overall_score": 5.75,
+        "summary": "Based on the information provided in the RFP data chunks, the primary objectives and goals of the project are to empanel software development firms for e-Governance projects in the Government of Odisha. The project aims to implement ICT initiatives in government departments by partnering with local firms in Odisha.\n\nKey technological requirements and specifications include the need for software development expertise, particularly in areas such as GIS development and mobile app development. The project also requires agencies to demonstrate technical skills and prioritize quoted technologies.\n\nCritical functional needs and desired outcomes include comprehensive system analysis, implementation and testing, system integration, and application support. The project requires agencies to provide project citations and demonstrate their ability to meet the specified requirements.\n\nCompliance and regulatory standards include the adherence to the code of integrity, which prohibits bribery, misrepresentation, collusion, and improper use of information. Empanelled firms must comply with the terms and conditions outlined in the RFP document.\n\nThe specific industry/domain focus of the project is e-Governance in the Government of Odisha. The project aims to enhance government processes and service delivery through the use of technology and software solutions.\n\nMajor deliverables include the empanelment of software development firms, who will be responsible for the development and implementation of ICT projects in government departments. Specific timelines for deliverables may be mentioned in the RFP document.\n\nIn terms of compliance, bidders are required to submit various forms and documents, including the Bid Security Declaration Form and compliance sheets for pre-qualification and technical proposals. The project also mentions the jurisdiction of the High Court of Odisha for dispute resolution.\n\nOverall, the project seeks to select qualified software development firms through a transparent bidding process to enhance e-Governance initiatives in the Government of Odisha.",
+        "matching_scores": [
+            {
+                "score": 8.0,
+                "section": "Technology"
+            },
+            {
+                "score": 7.0,
+                "section": "Functional"
+            },
+            {
+                "score": 3.0,
+                "section": "Compliance"
+            },
+            {
+                "score": 5.0,
+                "section": "Domain"
+            }
+        ]
+    },
+    
 }

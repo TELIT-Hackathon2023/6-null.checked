@@ -79,7 +79,7 @@ def get_scores(client, summary):
             model="gpt-3.5-turbo",
             messages=[
                 {"role": "system", "content": compare_instructions},
-                {"role": "user", "content": f"RFP Data: {summary}"},
+                {"role": "user", "content": "RFP Data:\n"+'\n'.join([chunk["content"] for chunk in brief_chunks])},
                 {"role": "user", "content": f"Company Data:\n{company_data}"}
             ],
         )

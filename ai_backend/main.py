@@ -19,7 +19,7 @@ def get_recommendations(company_url, pdf_url, company_data=None, pdf_data=None):
 
 if __name__ == "__main__":
     company_url = "https://www.t-systems.com/de/en"
-    pdf_url = "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%2032101-2023-002%20Access%20Control.pdf"
+    pdf_url = "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP2203_Software_Development_Services-Final.pdf"
     result_name = pdf_url.split("/")[-1].split(".")[0]
     json.dump(get_recommendations(company_url, pdf_url, company_data="data/t_systems_data.json"), 
               open(f"data/{result_name}.json", "w"), indent=4)
