@@ -20,20 +20,23 @@ summary_prompt = """
     Ensure that your summary is concise yet thorough, highlighting the most significant aspects of the project for a clear understanding.
 """
 
+# shortened chunks by GPT
 brief_chunks = []
 
-
+# getting categories and scores from the raw output
 def extract_categories_and_scores(text):
     pattern = r'(\w+)=([\d\.]+)'
     matches = re.findall(pattern, text)
     extracted_data = {category: float(score) for category, score in matches}
     return extracted_data
 
+# getting the client
 def get_client():
     with open("api-key.txt", "r") as f:
         client = OpenAI(api_key=f.read().strip())
     return client
 
+# sending the RFP chunks to GPT
 def send_rfp_data(client):
     with open("data/output.json", "r", encoding="utf-8") as f:
         rfp_data = json.load(f)
@@ -49,6 +52,7 @@ def send_rfp_data(client):
         )
         print(f'Gotten response from RFP Data Chunk #{i}...')
 
+# getting the summary from GPT
 def get_summary(client):
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -61,6 +65,7 @@ def get_summary(client):
     
     return summary
 
+# getting the scores from GPT
 def get_scores(client, summary):
     with open("data/t_systems_data.json", "r", encoding="utf-8") as f:
         company_data = str(json.load(f))
@@ -89,6 +94,7 @@ def get_scores(client, summary):
 
     return scores
 
+# running the LLM, returning the scores and the summary
 def run_llm():
     client = get_client()
     send_rfp_data(client)
