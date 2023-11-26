@@ -21,7 +21,7 @@ def extract_text_from_pdf(file_stream):
         text += page.get_text()
     return text
 
-def chunk_text(text, chunk_size=4000):
+def chunk_text(text, chunk_size=3500):
     return [text[i:i + chunk_size] for i in range(0, len(text), chunk_size)]
 
 def save_chunks_as_json(chunks, filename):
