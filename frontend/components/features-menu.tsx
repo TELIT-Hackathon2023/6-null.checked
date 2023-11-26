@@ -4,8 +4,6 @@ import * as React from "react"
 
 import { BarChart3Icon, ClipboardListIcon, GaugeIcon, LucideIcon } from "lucide-react";
 
-import { cn } from "@/lib/utils"
-
 
 export const features: { title: string; description: string; icon: LucideIcon;}[] = [
   {

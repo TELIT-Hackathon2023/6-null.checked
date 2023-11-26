@@ -72,7 +72,6 @@ const ContentBox = ({
     Legend
   );
 
-  console.log(color)
   const text = `T-Systems International GmbH, commonly known as T-Systems, is an international service provider specializing in information technologies and digital transformation. Below is a structured summary of the company:
 
   1. Company Overview:
@@ -120,7 +119,7 @@ const ContentBox = ({
         </div>
       )}
       {currentFeature.title === "Matching Dashboard" && (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center dark:bg-white rounded-xl">
           <Bar
             data={{
               labels: ['Score'],
@@ -151,7 +150,7 @@ const ContentBox = ({
                 },
                 title: {
                   display: true,
-                  text: 'Chart.js Bar Chart'
+                  text: 'Matching Score of following categories',
                 }
               }
             }}
