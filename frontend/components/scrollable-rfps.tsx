@@ -102,6 +102,8 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router
       const response = await axios.get(`${url}api/analyse`, { params: { href: proposal.href } });
       
       const data = response.data ? response.data : [];
+      setTimeout(() => {console.log(), 5000});
+
       setData(data);
       return data;
     } catch (error) {
@@ -131,10 +133,10 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router
           <>
           <div key={proposal.href} className="group flex items-center justify-between">
             <div className="flex items-center space-x-1">
-              <Button disabled onClick={() => getAnalysedProposal(proposal)} variant="ghost" size="sm" className="relative w-fit p-2">
+            <Button onClick={() => getAnalysedProposal(proposal)} variant="ghost" size="sm" className="w-fit p-2">
                 {currentProposal?.title === proposal.title ? (
                   <>
-                    <CircleIcon size={22} className="text-secondary"/>
+                    <CircleIcon  size={22} className="text-secondary"/>
                     <CheckIcon size={14} className="absolute text-secondary"/>
                   </>
                 ) : (

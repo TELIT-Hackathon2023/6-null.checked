@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
+from test_data_dict import TEST_DATA_DICT
+
 app = Flask(__name__)
 CORS(app)
 
@@ -13,27 +15,10 @@ load_dotenv()
 def analyse():
     # proposal_href is id of the proposal
     proposal_href = request.args.get("href")
-    """
-    result = some_dict[proposal_href]
-      result looks like this:
-      [
-        {
-          "summary": "...",
-          "matching_scores": [
-            {
-              "score": 0.9,
-              "section": "Introduction"
-            },
-            {
-              "score": 0.8,
-              "section": "Conclusion"
-            }
-            ...
-          ],
-        },
-      ]
-    """
-    return jsonify({"href": proposal_href, "status": "success"})
+
+    result = TEST_DATA_DICT[proposal_href]
+    
+    return jsonify(result)
 
 if __name__ == "__main__":
     app.run(
