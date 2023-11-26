@@ -2,8 +2,11 @@ import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Separator } from "./ui/separator"
 import { ProposalHoverCard } from "./proposal-hover"
 import { Button } from "./ui/button"
-import { CheckIcon, CircleIcon, TrashIcon } from "lucide-react"
+import { ArrowDownWideNarrowIcon, ArrowUpWideNarrowIcon, CheckIcon, CircleIcon, TrashIcon } from "lucide-react"
 import axios from "axios"
+import { useState } from "react"
+import { cn } from "@/lib/utils"
+import { ColorRanges } from "./content-box"
 
 export interface Proposal {
   title: string
@@ -84,6 +87,7 @@ interface Props {
 }
 
 export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router, setData, isLoading, setIsLoading }: Props) {
+  const [isAscending, setIsAscending] = useState(false);
   const deleteItem = (proposal: any) => {    
     proposals.splice(proposals.indexOf(proposal ), 1);
     router.refresh();
@@ -110,7 +114,19 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router
   return (
     <ScrollArea className={`w-96 h-screen whitespace-nowrap rounded-md border ${isLoading ? "pointer-events-none opacity-50" : ""}`}>
       <div className="p-4">
-        <h4 className="mb-4 text-sm font-medium leading-none">Requests for proposals</h4>
+        <div className="flex items-center justify-between pb-2">
+          <h4 className="font-medium leading-none">Requests for proposals</h4>
+          {isAscending ? (
+            // sort proposals "overall" field by ascending order
+            <Button onClick={() => {setIsAscending(false);proposals.sort((a,b) => 0 - (a.overall > b.overall ? -1 : 1));router.refresh()}} variant="ghost" size="sm" className="flex text-muted-foreground hover:text-primary">
+              <ArrowDownWideNarrowIcon size={16}/>
+            </Button>
+          ) : (
+            <Button onClick={() => {setIsAscending(true);proposals.sort((a,b) => 0 - (a.overall > b.overall ? 1 : -1));router.refresh()}} variant="ghost" size="sm" className="flex text-muted-foreground hover:text-primary">
+              <ArrowUpWideNarrowIcon size={16} />
+            </Button>
+          )}
+        </div>
         {proposals.map((proposal) => (
           <>
           <div key={proposal.href} className="group flex items-center justify-between">
@@ -137,10 +153,17 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router
                 </div>
               )}
               </div>
-              <div className="hidden group-hover:flex w-fit space-x-4">
-                <Button onClick={() => deleteItem(proposal)} variant="ghost" size="sm" className="flex-1 text-muted-foreground hover:text-primary">
-                  <TrashIcon size={16}/>
-                </Button>
+              <div className="flex w-fit">
+                <div className={cn("flex transition duration-200 items-center justify-center w-10 h-10 rounded-full", ColorRanges.find((range) => range.value >= proposal.overall)?.color)}>
+                  <div className="text text-lg font-bold">
+                    {proposal.overall}
+                  </div>
+                </div>
+                <div className="flex w-fit space-x-4">
+                  <Button onClick={() => deleteItem(proposal)} variant="ghost" size="sm" className="flex-1 text-muted-foreground hover:text-primary">
+                    <TrashIcon size={16}/>
+                  </Button>
+                </div>
               </div>
             </div>
           <Separator className="my-2" />
