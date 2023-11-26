@@ -33,7 +33,7 @@ def analyse():
         },
       ]
     """
-    return jsonify({"href": proposal_href, "status": "ok"})
+    return jsonify({"href": proposal_href, "status": "success"})
 
 if __name__ == "__main__":
     app.run(
