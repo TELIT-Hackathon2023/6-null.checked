@@ -70,6 +70,7 @@ def get_information(client):
 
     print('Gotten response from the scores evaluation:')
     print(response.choices[0].message.content)
+    scores = response.choices[0].message.content
 
     response = client.chat.completions.create(
         model="gpt-3.5-turbo",
@@ -80,6 +81,8 @@ def get_information(client):
 
     print('Gotten response from the summary forming:')
     print(response.choices[0].message.content)
+    summary = response.choices[0].message.content
+    return scores, summary
 
 def run_llm():
     client = get_client()
