@@ -94,7 +94,7 @@ const ContentBox = ({
   
   T-Systems' approach to digitalization emphasizes industry-specific solutions, catering to the unique needs of each sector it serves. The company's expertise in both traditional IT services and modern digital transformations positions it as a key player in driving digital innovation across multiple industries.`;
   return (
-    <div className="w-full item-start h-fit">
+    <div className="w-full item-start">
       <Heading
         key={currentFeature.title}
         title={currentFeature.title}
