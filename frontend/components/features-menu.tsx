@@ -26,15 +26,17 @@ export const features: { title: string; description: string; icon: LucideIcon;}[
 interface Props {
   currentFeature: { title: string; description: string; icon: LucideIcon;}, 
   setCurrentFeature: any
+  isLoading: boolean
 }
 
 export function FeaturesMenu({ 
   currentFeature, 
-  setCurrentFeature 
+  setCurrentFeature,
+  isLoading, 
 }: Props
 ) {
   return (
-    <div className="flex w-full max-h-lg items-center justify-between border-b cursor-pointer select-none">
+    <div className={`${isLoading ? "pointer-events-none opacity-50" : ""} flex w-full max-h-lg items-center justify-between border-b cursor-pointer select-none`}>
       {features.map((feature, index) => (
         <div key={feature.title} 
           className={`

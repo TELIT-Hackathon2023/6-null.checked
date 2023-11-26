@@ -15,10 +15,12 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import Loader from "./loader";
 
 interface Props {
   currentFeature: { title: string; description: string; icon: LucideIcon;};  
-  data: { summary: string; matching_scores: [{score: string, section: string}];};
+  data: any;
+  isLoading: boolean;
 }
 
 export const ColorRanges = [
@@ -56,14 +58,17 @@ export const ColorRanges = [
 
 const ContentBox = ({
   currentFeature, 
-  data
+  data,
+  isLoading
 }: Props
 ) => {
   
-  const score = data.matching_scores[0].score;
-  const color = ColorRanges.find((range) => range.value >= score)?.color;
-  
-  var match = ColorRanges.find((range) => range.value >= score)?.match;
+  const overallScore = data["overall_score"];
+  const summary = data["summary"];
+
+
+  const color = ColorRanges.find((range) => range.value >= overallScore)?.color;
+  const match = ColorRanges.find((range) => range.value >= overallScore)?.match;
 
 
   ChartJS.register(
@@ -75,26 +80,6 @@ const ContentBox = ({
     Legend
   );
 
-  const text = `T-Systems International GmbH, commonly known as T-Systems, is an international service provider specializing in information technologies and digital transformation. Below is a structured summary of the company:
-
-  1. Company Overview:
-     - Name: T-Systems International GmbH.
-     - Type: Internationally operating service provider for information technologies and digital transformation.
-     - Parent Company: Part of Deutsche Telekom AG.
-     - Headquarters: Frankfurt am Main, Germany.
-     - Global Presence: Over 20 countries.
-     - Employees: Around 28,000 worldwide.
-     - Revenue: EUR 4.2 billion in 2020【9†source】【12†source】【13†source】.
-  
-  2. Services and Fields:
-     - End-to-End IT Solutions: Offers integrated solutions for digital transformation across various industries and the public sector.
-     - Focus Industries: Automotive, public sector, healthcare, and transport.
-     - IT Services: Includes the secure operation of legacy systems, classic information and communication technology services.
-     - Cloud-Based Services: Transformation to cloud-based services.
-     - New Business Models and Projects: Involves data analytics, internet of things, machine-to-machine (M2M) communication, and industrial internet.
-     - Client Industries: Serves automotive, manufacturing, retail, public sector, travel, transportation, logistics, and healthcare industries【19†source】【20†source】【26†source】.
-  
-  T-Systems' approach to digitalization emphasizes industry-specific solutions, catering to the unique needs of each sector it serves. The company's expertise in both traditional IT services and modern digital transformations positions it as a key player in driving digital innovation across multiple industries.`;
   return (
     <div className="w-full item-start">
       <Heading
@@ -105,59 +90,86 @@ const ContentBox = ({
         iconColor="text-primary"
         bgColor="bg-primary/10"
       />
-      {currentFeature.title === "Summary" && (
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+        {currentFeature.title === "Summary" && (
           <ReactMarkdown className="prose dark:prose-headings:text-white dark:text-white lg:prose-xl text-sm leading-7">
-            {text}
+            {summary}
           </ReactMarkdown>
-      )}
-      {currentFeature.title === "Matching Score" && (
-        <div className="flex flex-col items-center justify-center">
-          <div className={cn("flex items-center justify-center w-40 h-40 rounded-full bg-gradient-to-r background-animate", color)}>
-            <div className="text text-7xl font-bold">
-              {score}
+        )}
+        {currentFeature.title === "Matching Score" && (
+          <div className="flex flex-col items-center justify-between">
+            <div className={cn("flex items-center justify-center w-40 h-40 rounded-full bg-gradient-to-r background-animate", color)}>
+              <div className="text text-7xl font-bold">
+                {overallScore}
+              </div>
+            </div>
+            <div className="text-lg font-bold mt-4">{match}</div>
+            <div className="flex items-center justify-between">
+              {data["matching_scores"].map((item: any) => (
+                <div key={item.section} className="flex flex-col items-center p-10">
+                  <div  className={cn("flex items-center justify-center w-32 h-32 rounded-full bg-secondary")}>
+                    <div  className="text text-6xl font-bold">
+                      {item.score}
+                    </div>
+                  </div>
+                  <div className=" font-bold mt-4">{item.section}</div>
+                </div>
+              ))}
             </div>
           </div>
-          <div className="text-lg font-bold mt-4">{match}</div>
-        </div>
-      )}
-      {currentFeature.title === "Matching Dashboard" && (
-        <div className="flex flex-col items-center justify-center dark:bg-white rounded-xl">
-          <Bar
-            data={{
-              labels: ['Score'],
-              datasets: [
-                {
-                  label: 'Technical Matching Score',
-                  data: [score],
-                  backgroundColor: 'rgb(224, 99, 132)',
+        )}
+        {currentFeature.title === "Matching Dashboard" && (
+          <div className="flex flex-col items-center justify-center dark:bg-white rounded-xl">
+            <Bar
+              data={{
+                labels: ['Score'],
+                datasets: [
+                  {
+                    label: `${data["matching_scores"][0].section}`,
+                    data: [data["matching_scores"][0].score],
+                    backgroundColor: 'rgb(224, 99, 132)',
+                  },
+                  {
+                    label: `${data["matching_scores"][1].section}`,
+                    data: [data["matching_scores"][1].score],
+                    backgroundColor: 'hsl(180, 48%, 52%)',
+                  },
+                  {
+                    label: `${data["matching_scores"][2].section}`,
+                    data: [data["matching_scores"][2].score],
+                    backgroundColor: 'rgb(102, 102, 255)',
+                  },
+                  {
+                    label: `${data["matching_scores"][3].section}`,
+                    data: [data["matching_scores"][3].score],
+                    backgroundColor: 'rgb(102, 255, 255)',
+                  },
+                ],
+              }}
+              options={{
+                responsive: true,
+                scales: {
+                  y: {
+                    max: 10,
+                  } 
                 },
-                {
-                  label: 'Function Matching Score',
-                  backgroundColor: 'rgb(255, 99, 132)',
-                  data: [6],
-                  borderColor: 'white',
-                },
-                {
-                  label: 'Domain Matching Score',
-                  backgroundColor: 'rgb(75, 192, 192)',
-                  data: [2],
+                plugins: {
+                  legend: {
+                    position: 'top' as const,
+                  },
+                  title: {
+                    display: true,
+                    text: 'Matching Score of following categories',
+                  }
                 }
-              ],
-            }}
-            options={{
-              responsive: true,
-              plugins: {
-                legend: {
-                  position: 'top' as const,
-                },
-                title: {
-                  display: true,
-                  text: 'Matching Score of following categories',
-                }
-              }
-            }}
-          />
-        </div>
+              }}
+            />
+          </div>
+        )}
+        </>
       )}
     </div>
   )

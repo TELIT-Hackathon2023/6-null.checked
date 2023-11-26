@@ -8,56 +8,69 @@ import axios from "axios"
 export interface Proposal {
   title: string
   href: string
+  overall: number
 }
 
 export let proposals: Proposal[] = [
   {
     title: "2015_RFPWebsiteRedesignRepost.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/2015_RFPWebsiteRedesignRepost.pdf",  
+    overall: 7.5,
   },
   {
     title: "5308.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/5308.pdf",
+    overall: 5,
   },
   {
     title: "170609_student.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/170609_student.pdf",
+    overall: 8,
   },
   {
     title: "DRA-0131_2015_08_04_09_40_16_KHV9j_Af8vT_59n8t.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/DRA-0131_2015_08_04_09_40_16_KHV9j_Af8vT_59n8t.pdf",
+    overall: 9,
   },
   {
     title: "RequestforInformation_Wastewater_RFP.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RequestforInformation_Wastewater_RFP.pdf",
+    overall: 6,
   },
   {
     title: "RFP 32101-2023-002 Access Control.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%2032101-2023-002%20Access%20Control.pdf",
+    overall: 10,
   },
   {
     title: "RFP 32901-31328-23 Final.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%2032901-31328-23%20Final.pdf",
+    overall: 7,
   },
   {
     title: "RFP Empanelment_SW_2022.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%20Empanelment_SW_2022.pdf",
+    overall: 6,
   },
   {
     title: "rfp for software development resources 2023-24 final.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/rfp%20for%20software%20development%20resources%202023-24%20final.pdf",
+    overall: 4,
   },
   {
     title: "RFP2203_Software_Development_Services-Final.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP2203_Software_Development_Services-Final.pdf",
+    overall: 2,
   },
   {
     title: "RFPDOC_43752.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFPDOC_43752.pdf",
+    overall: 3,
   },
   {
     title: "UNDPSO-RFP-2015-019.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/UNDPSO-RFP-2015-019.pdf",
+    overall: 1,
   }
 ]
 
@@ -66,9 +79,11 @@ interface Props {
   setCurrentProposal: any;
   router: any;
   setData: any;
+  isLoading: boolean;
+  setIsLoading: any;
 }
 
-export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router, setData }: Props) {
+export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router, setData, isLoading, setIsLoading }: Props) {
   const deleteItem = (proposal: any) => {    
     proposals.splice(proposals.indexOf(proposal ), 1);
     router.refresh();
@@ -77,26 +92,30 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router
   const url = 'http://127.0.0.1:8080/';
   async function getAnalysedProposal(proposal: Proposal) {
     try {
+      setIsLoading(true);
       setCurrentProposal(proposal);
 
       const response = await axios.get(`${url}api/analyse`, { params: { href: proposal.href } });
       
       const data = response.data ? response.data : [];
+      setData(data);
       return data;
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   }
 
   return (
-    <ScrollArea className="w-96 h-screen whitespace-nowrap rounded-md border">
+    <ScrollArea className={`w-96 h-screen whitespace-nowrap rounded-md border ${isLoading ? "pointer-events-none opacity-50" : ""}`}>
       <div className="p-4">
         <h4 className="mb-4 text-sm font-medium leading-none">Requests for proposals</h4>
         {proposals.map((proposal) => (
           <>
           <div key={proposal.href} className="group flex items-center justify-between">
             <div className="flex items-center space-x-1">
-              <Button onClick={() => getAnalysedProposal(proposal)} variant="ghost" size="sm" className="relative w-fit p-2">
+              <Button disabled onClick={() => getAnalysedProposal(proposal)} variant="ghost" size="sm" className="relative w-fit p-2">
                 {currentProposal?.title === proposal.title ? (
                   <>
                     <CircleIcon size={22} className="text-secondary"/>

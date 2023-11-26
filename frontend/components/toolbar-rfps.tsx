@@ -4,9 +4,13 @@ import { proposals } from "./scrollable-rfps"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 
-const ToolbarRFP = () => {
+interface Props {
+  isLoading: boolean
+}
+
+const ToolbarRFP = ({isLoading}: Props) => {
   return (
-    <div className="flex w-96 justify-between space-x-4 mb-4">
+    <div className={`${isLoading ? "pointer-events-none opacity-50" : ""} flex w-96 justify-between space-x-4 mb-4`}>
       <Input
           placeholder="Filter proposals..."
           // value={(proposals.("email")?.getFilterValue() as string) ?? ""}
@@ -15,7 +19,7 @@ const ToolbarRFP = () => {
           // }
           className="w-full"
         />
-      <Button>Upload file</Button>
+      <Button disabled={isLoading}>Upload file</Button>
     </div>
   )
 }
