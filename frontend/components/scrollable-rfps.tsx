@@ -65,9 +65,10 @@ interface Props {
   currentProposal: { title: string; href: string;} | null;
   setCurrentProposal: any;
   router: any;
+  setData: any;
 }
 
-export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router }: Props) {
+export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router, setData }: Props) {
   const deleteItem = (proposal: any) => {    
     proposals.splice(proposals.indexOf(proposal ), 1);
     router.refresh();
@@ -75,10 +76,16 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router
 
   const url = 'http://127.0.0.1:8080/';
   async function getAnalysedProposal(proposal: Proposal) {
-    setCurrentProposal(proposal);
+    try {
+      setCurrentProposal(proposal);
 
-    const response = await axios.get(`${url}api/analyse`, { params: { href: proposal.href } });
-    console.log(response.data);
+      const response = await axios.get(`${url}api/analyse`, { params: { href: proposal.href } });
+      
+      const data = response.data ? response.data : [];
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

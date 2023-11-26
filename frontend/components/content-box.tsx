@@ -15,10 +15,10 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 interface Props {
   currentFeature: { title: string; description: string; icon: LucideIcon;};  
+  data: { summary: string; matching_scores: [{score: string, section: string}];};
 }
 
 export const ColorRanges = [
@@ -56,9 +56,11 @@ export const ColorRanges = [
 
 const ContentBox = ({
   currentFeature, 
+  data
 }: Props
 ) => {
-  let score = 9;
+  
+  const score = data.matching_scores[0].score;
   const color = ColorRanges.find((range) => range.value >= score)?.color;
   
   var match = ColorRanges.find((range) => range.value >= score)?.match;
