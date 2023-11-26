@@ -5,12 +5,13 @@ import './globals.css'
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from '@/components/navbar';
 import Providers from '@/app/providers';
+import { Footer } from '@/components/footer';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'NONAME',
-  description: 'NONAME',
+  title: 'MAGENTA',
+  description: 'MAGENTA',
 }
 
 export default function RootLayout({
@@ -28,7 +29,6 @@ export default function RootLayout({
                 enableSystem
                 disableTransitionOnChange
               >
-                <Navbar />
                 {children}
             </ThemeProvider>
           </Providers>

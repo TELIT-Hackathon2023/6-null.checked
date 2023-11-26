@@ -5,13 +5,14 @@ import { Separator } from "./ui/separator"
 import { ProposalHoverCard } from "./proposal-hover"
 import { Button } from "./ui/button"
 import { CheckIcon, CircleIcon, TrashIcon } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export interface Proposal {
   title: string
   href: string
 }
 
-export const proposals: Proposal[] = [
+export let proposals: Proposal[] = [
   {
     title: "2015_RFPWebsiteRedesignRepost.pdf",
     href: "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/2015_RFPWebsiteRedesignRepost.pdf",  
@@ -68,11 +69,17 @@ interface Props {
 }
 
 export function ScrollAreaProposal({ currentProposal, setCurrentProposal }: Props) {
+  const router = useRouter();  
+
+  const deleteItem = (proposal: any) => {    
+    proposals.splice(proposals.indexOf(proposal ), 1);
+    router.refresh();
+  }
   return (
     <ScrollArea className="w-96 h-screen whitespace-nowrap rounded-md border">
       <div className="p-4">
         <h4 className="mb-4 text-sm font-medium leading-none">Requests for proposals</h4>
-        {proposals.map((proposal) => (
+        {proposals.map((proposal, index) => (
           <>
           <div key={proposal.href} className="group flex items-center justify-between">
             <div className="flex items-center space-x-1">
@@ -99,7 +106,7 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal }: Prop
               )}
               </div>
               <div className="hidden group-hover:flex w-fit space-x-4">
-                <Button variant="ghost" size="sm" className="flex-1 text-muted-foreground hover:text-primary">
+                <Button onClick={() => deleteItem(proposal)} variant="ghost" size="sm" className="flex-1 text-muted-foreground hover:text-primary">
                   <TrashIcon size={16}/>
                 </Button>
               </div>
