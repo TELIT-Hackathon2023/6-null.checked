@@ -1,18 +1,18 @@
 TEST_DATA_DICT = {
     "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/170609_student.pdf": {
-        "overall_score": 0.75,
+        "overall_score": 3.75,
         "summary": "The primary objective of this project is to design, develop, and implement an Online Integrated Student Life Cycle Management System. The goal is to streamline and automate various processes related to student life cycle management, including admissions, enrollment, fee management, examination management, and certification. \n\nKey technological requirements for the system include a web-based platform that is scalable, secure, and user-friendly. It should have modules for different functions like student information management, course management, attendance tracking, result processing, and document management. The system should be able to integrate with existing systems and databases in educational institutions and ensure data security and privacy.\n\nThe critical functional needs and desired outcomes of the project include improving efficiency and transparency in student life cycle management processes, reducing manual paperwork, enhancing data accuracy, facilitating online fee payments, providing real-time access to information for students, teachers, and administrators, and generating reports and analytics for decision-making.\n\nThe project must comply with relevant regulatory and compliance standards set by the government, including data protection and privacy regulations. The system should adhere to security standards and protocols to ensure the confidentiality and integrity of student data.\n\nThe specific industry/domain focus of the project is the education sector, specifically higher education institutions and universities. The system aims to address the challenges and complexities associated with managing student life cycles in these institutions.\n\nThe major deliverables of the project include a fully functional Online Integrated Student Life Cycle Management System that meets the specified requirements. Additionally, a service level agreement (SLA) should be established for ongoing maintenance and support of the system. The expected timeline for the project will be specified in the tender documents, including milestones for development, testing, deployment, and training.\n\nOverall, the project aims to enhance the efficiency and effectiveness of student life cycle management processes in educational institutions through the implementation of a comprehensive online system.",
         "matching_scores": [
             {
-                "score": 1.0,
+                "score": 5.0,
                 "section": "Technology"
             },
             {
-                "score": 1.0,
+                "score": 5.0,
                 "section": "Functional"
             },
             {
-                "score": 1.0,
+                "score": 5.0,
                 "section": "Compliance"
             },
             {
@@ -22,23 +22,23 @@ TEST_DATA_DICT = {
         ]
     },
     "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/5308.pdf": {
-        "overall_score": 3.0,
+        "overall_score": 5.25,
         "summary": "Based on the provided information from the RFP, here is a concise summary of the project:\n\n1. Primary objectives and goals:\n   - Selection of a Software Development Agency (SDA) for the development and maintenance of a Web Portal with VAT support modules.\n   - Migration of the existing application (COVIS) to the new portal.\n   - Maintenance and support of VAT-related functionalities, including return forms.\n\n2. Key technological requirements and specifications:\n   - Development and maintenance of a web portal with specific functionalities.\n   - COVIS application migration to the new portal.\n   - Database administration, software change management, and system documentation.\n   - Compliance with CMS Portal, e-Payment of Taxes, and VAT-related regulations.\n   - Emphasis on application architecture and solution design.\n\n3. Critical functional needs and desired outcomes:\n   - Successful migration of the COVIS application to the new portal.\n   - Development and maintenance of VAT-related functionalities, including return forms.\n   - Timely delivery of project milestones and adherence to the project plan.\n   - System study, solution development, testing, and user acceptance testing.\n\n4. Compliance and regulatory standards mentioned:\n   - Compliance with CMS Portal, e-Payment of Taxes, and VAT-related regulations.\n   - Adherence to the provided clause reference and compliance sheets.\n\n5. Industry/domain focus:\n   - The project is focused on the development and maintenance of a Web Portal with VAT support modules, catering to VAT-related processes.\n\n6. Major deliverables and expected timelines:\n   - Timely completion of system study, solution design, solution development, testing, user acceptance testing, and acceptance testing by the assessment agency.\n   - Go-Live of the new portal.\n   - Adherence to the provided project plan and documentation requirements.\n\nThis summary provides an overview of the main objectives, technological requirements, functional needs, compliance standards, industry focus, and deliverables of the project outlined in the RFP.",
         "matching_scores": [
             {
-                "score": 5.0,
+                "score": 8.0,
                 "section": "Technology"
             },
             {
-                "score": 2.0,
+                "score": 4.0,
                 "section": "Functional"
             },
             {
-                "score": 1.0,
+                "score": 2.0,
                 "section": "Compliance"
             },
             {
-                "score": 4.0,
+                "score": 7.0,
                 "section": "Domain"
             }
         ]
@@ -66,19 +66,19 @@ TEST_DATA_DICT = {
         ]
     },
     "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/DRA-0131_2015_08_04_09_40_16_KHV9j_Af8vT_59n8t.pdf": {
-        "overall_score": 3.5,
+        "overall_score": 5.25,
         "summary": "In summary, the primary objectives and goals of the project are to engage a qualified contractor to provide market research support services for the Marketing and Technology Division of the City of Charlotte. The key technological requirements and specifications include coordination with CATS officials and adherence to safe practices and procedures. The critical functional needs are to maintain a safe environment in managed facilities and improve transit services in the Charlotte-Mecklenburg area. The desired outcomes are to understand customer satisfaction and address public transit issues. Compliance with safety policies, regulations, and statutory requirements is emphasized. The specific industry/domain focus of the project is public transportation and transit services. The major deliverables include conducting a market research study each year, measuring customer satisfaction, and improving service. The expected timeline is from the date of award through September, with renewal options.",
         "matching_scores": [
             {
-                "score": 3.0,
+                "score": 6.0,
                 "section": "Technology"
             },
             {
-                "score": 1.0,
+                "score": 2.0,
                 "section": "Functional"
             },
             {
-                "score": 1.0,
+                "score": 4.0,
                 "section": "Compliance"
             },
             {
@@ -132,29 +132,29 @@ TEST_DATA_DICT = {
         ]
     },
     "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP%20Empanelment_SW_2022.pdf": {
-        "overall_score": 5.75,
+        "overall_score": 6.75,
         "summary": "Based on the information provided in the RFP data chunks, the primary objectives and goals of the project are to empanel software development firms for e-Governance projects in the Government of Odisha. The project aims to implement ICT initiatives in government departments by partnering with local firms in Odisha.\n\nKey technological requirements and specifications include the need for software development expertise, particularly in areas such as GIS development and mobile app development. The project also requires agencies to demonstrate technical skills and prioritize quoted technologies.\n\nCritical functional needs and desired outcomes include comprehensive system analysis, implementation and testing, system integration, and application support. The project requires agencies to provide project citations and demonstrate their ability to meet the specified requirements.\n\nCompliance and regulatory standards include the adherence to the code of integrity, which prohibits bribery, misrepresentation, collusion, and improper use of information. Empanelled firms must comply with the terms and conditions outlined in the RFP document.\n\nThe specific industry/domain focus of the project is e-Governance in the Government of Odisha. The project aims to enhance government processes and service delivery through the use of technology and software solutions.\n\nMajor deliverables include the empanelment of software development firms, who will be responsible for the development and implementation of ICT projects in government departments. Specific timelines for deliverables may be mentioned in the RFP document.\n\nIn terms of compliance, bidders are required to submit various forms and documents, including the Bid Security Declaration Form and compliance sheets for pre-qualification and technical proposals. The project also mentions the jurisdiction of the High Court of Odisha for dispute resolution.\n\nOverall, the project seeks to select qualified software development firms through a transparent bidding process to enhance e-Governance initiatives in the Government of Odisha.",
         "matching_scores": [
             {
-                "score": 8.0,
+                "score": 9.0,
                 "section": "Technology"
             },
             {
-                "score": 7.0,
+                "score": 8.0,
                 "section": "Functional"
             },
             {
-                "score": 3.0,
+                "score": 4.0,
                 "section": "Compliance"
             },
             {
-                "score": 5.0,
+                "score": 6.0,
                 "section": "Domain"
             }
         ]
     },
     "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP2203_Software_Development_Services-Final.pdf": {
-        "overall_score": 3.0,
+        "overall_score": 3.75,
         "summary": "The primary objectives and goals of the project outlined in the RFP are as follows:\n1. Develop comprehensive software solutions for HOC's Freedom of Information Act (FOIA) Request and Meeting Tracking Systems.\n2. Create business metrics to represent future goals and tie them to organizational processes for improved functions and services.\n3. Integrate HOC's Middleware and Google's G-Suite Platform.\n4. Integrate the software solutions with HOC's website and Yardi Voyager system.\n\nKey technological requirements and specifications include:\n1. Microsoft SQL Server databases, Windows, G-Suite, AWS, HTML, Java, JavaScript, Visual Basic, ASP, .NET, C# (C-Sharp), AODocs, and Voyager by Yardi are currently used technologies and platforms.\n2. The Meeting Tracking System should include specific features such as tenant meeting sign-up, agenda tracking, staff follow-up and complaint tracking, document search, executive dashboard, ADA compliance, and integration with HOC's website and Yardi Voyager system.\n\nCritical functional needs and desired outcomes include:\n1. Consulting and/or training in software development, design, security, programming, strategic planning, process reengineering, and project management.\n2. Complete proposal including qualifications, credentials, certifications, techniques, experience, and resumes/credentials of assigned personnel.\n3. Price proposal.\n4. Compliance with HOC security procedures and background screening requirements.\n5. Proof of liability insurance coverage.\n6. Compliance with HUD forms for contracts receiving FHA or HUD funding.\n7. Promotion of the use of minority/female/disabled firms.\n8. Meeting HOC's evaluation criteria and requirements for Contractors.\n\nCompliance and regulatory standards mentioned include:\n1. Liability insurance requirements for property damage and bodily injury.\n2. Professional liability, automobile liability, fidelity bond or crime insurance, worker's compensation, cyber insurance, privacy and network security coverage.\n3. Compliance with the Maryland Local Government Torts Claims Act.\n4. Background screening requirements for employees and subcontractors working on the project.\n5. Compliance with HUD forms for contracts receiving FHA or HUD funding.\n\nThe specific industry/domain focus of the project is software development services for a public housing agency (HOC) in Montgomery County, Maryland.\n\nMajor deliverables include:\n1. Comprehensive software solutions for HOC's FOIA Request and Meeting Tracking Systems.\n2. Integration of HOC's Middleware and Google's G-Suite Platform.\n3. Integration with HOC's website and Yardi Voyager system.\n\nThe expected timeline is not mentioned in the provided information.\n\nNote: The information provided is based on the available content in the RFP, and additional details may be present in other sections of the document not provided here.",
         "matching_scores": [
             {
@@ -162,15 +162,15 @@ TEST_DATA_DICT = {
                 "section": "Technology"
             },
             {
-                "score": 2.0,
+                "score": 3.0,
                 "section": "Functional"
             },
             {
-                "score": 1.0,
+                "score": 2.0,
                 "section": "Compliance"
             },
             {
-                "score": 3.0,
+                "score": 4.0,
                 "section": "Domain"
             }
         ]
