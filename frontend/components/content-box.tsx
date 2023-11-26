@@ -2,7 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { Heading } from "./heading";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, Scroll } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 
 import { Bar } from 'react-chartjs-2';
@@ -15,6 +15,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 interface Props {
   currentFeature: { title: string; description: string; icon: LucideIcon;};  
@@ -103,10 +104,9 @@ const ContentBox = ({
         bgColor="bg-primary/10"
       />
       {currentFeature.title === "Summary" && (
-        <ReactMarkdown className="prose dark:prose-headings:text-white dark:text-white lg:prose-xl text-sm overflow-hidden leading-7"
-        >
-          {text}
-        </ReactMarkdown>
+          <ReactMarkdown className="prose dark:prose-headings:text-white dark:text-white lg:prose-xl text-sm leading-7">
+            {text}
+          </ReactMarkdown>
       )}
       {currentFeature.title === "Matching Score" && (
         <div className="flex flex-col items-center justify-center">

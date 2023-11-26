@@ -33,11 +33,11 @@ def analyse():
         },
       ]
     """
-    return jsonify({"href": proposal_href, "status": "success"})
+    return jsonify({"href": proposal_href, "status": "ok"})
 
 if __name__ == "__main__":
     app.run(
         host="127.0.0.1",
-        port=os.getenv(8080, 5000), 
+        port=8080,
         debug=False
     )
