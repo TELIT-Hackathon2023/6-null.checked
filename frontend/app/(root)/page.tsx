@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <section className="h-full">
+      <section className="h-full pb-40">
         <LandingHero />
       </section>
       <Footer />
