@@ -21,7 +21,7 @@ def get_recommendations(company_url, pdf_url, company_data=None, pdf_data=None):
     scores, summary = run_llm()
     scores = extract_categories_and_scores(scores)
     scores = [{"score": scores[key], "section": key} for key in scores]
-    scores += [{"score": sum([s["score"] for s in scores]), "section": "Overall Score"}]
+    scores += [{"score": sum([s["score"] for s in scores]/len(scores)), "section": "Overall Score"}]
     result = {"summary": summary, "matching_scores": scores}
     return result
 
