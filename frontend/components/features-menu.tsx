@@ -40,8 +40,8 @@ export function FeaturesMenu({
       {features.map((feature, index) => (
         <div key={feature.title} 
           className={`
-            flex-1 p-4 text-center duration-150 w-full h-full items-center hover:bg-primary/10
-            ${currentFeature.title === feature.title ? "bg-primary/10" : ""}
+            flex-1 p-4 text-center duration-150 w-full h-full items-center hover:bg-primary/20 dark:hover:bg-primary/40
+            ${currentFeature.title === feature.title ? "bg-primary/20 dark:bg-primary/40" : ""}
             ${index === 0 ? "rounded-tl-xl" : ""}
             ${index === features.length - 1 ? "rounded-tr-xl" : ""}
           `}

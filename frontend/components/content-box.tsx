@@ -25,34 +25,34 @@ interface Props {
 
 export const ColorRanges = [
   {
-    color: "from-red-500 to-red-500/80",
+    color: "bg-red-500",
     value: 5,
-    match: "Bad Match",
+    match: "Bad Match 👎",
   },
   {
-    color: "from-red-500 to-orange-500",
+    color: "bg-orange-500",
     value: 6,
-    match: "Low Match",
+    match: "Low Match 👎",
   },
   {
-    color: "from-orange-500 to-yellow-500",
+    color: "bg-yellow-500",
     value: 7,
-    matcj: "Medium Match",
+    matcj: "Medium Match 👎",
   },
   {
-    color: "from-yellow-500 to-secondary",
+    color: "bg-lime-500",
     value: 8,
-    match: "High Match",
+    match: "High Match 👍",
   },
   {
-    color: "from-secondary to-primary/80",
+    color: "bg-green-500",
     value: 9,
-    match: "Very High Match",
+    match: "Very High Match 👍",
   },
   {
-    color: "from-primary to-primary/60",
+    color: "bg-primary",
     value: 10,
-    match: "Perfect Match",
+    match: "Perfect Match 👍",
   },
 ]
 
@@ -80,6 +80,8 @@ const ContentBox = ({
     Legend
   );
 
+  ChartJS.defaults.font.size = 18;
+
   return (
     <div className="w-full item-start">
       <Heading
@@ -88,7 +90,7 @@ const ContentBox = ({
         description={currentFeature.description}
         icon={currentFeature.icon}
         iconColor="text-primary"
-        bgColor="bg-primary/10"
+        bgColor="bg-primary/20 dark:bg-primary/40"
       />
       {isLoading ? (
         <Loader />
@@ -101,28 +103,29 @@ const ContentBox = ({
         )}
         {currentFeature.title === "Matching Score" && (
           <div className="flex flex-col items-center justify-between">
-            <div className={cn("flex items-center justify-center w-40 h-40 rounded-full bg-gradient-to-r background-animate", color)}>
+            <div className={cn("flex items-center justify-center w-40 h-40 rounded-full", color)}>
               <div className="text text-7xl font-bold">
                 {overallScore}
               </div>
             </div>
-            <div className="text-lg font-bold mt-4">{match}</div>
+            <div className="text-xl font-bold mt-4">Overall</div>
+            <div className="text-6xl font-extrabold mt-4 ">{match}</div>
             <div className="flex items-center justify-between">
               {data["matching_scores"].map((item: any) => (
                 <div key={item.section} className="flex flex-col items-center p-10">
-                  <div  className={cn("flex items-center justify-center w-32 h-32 rounded-full bg-secondary")}>
-                    <div  className="text text-6xl font-bold">
+                  <div className={cn("flex items-center justify-center w-32 h-32 rounded-full", ColorRanges.find((range) => range.value >= item.score)?.color)}>
+                    <div className="font-bold text-5xl">
                       {item.score}
                     </div>
                   </div>
-                  <div className=" font-bold mt-4">{item.section}</div>
+                  <div className="text-xl font-bold mt-4">{item.section}</div>
                 </div>
               ))}
             </div>
           </div>
         )}
         {currentFeature.title === "Matching Dashboard" && (
-          <div className="flex flex-col items-center justify-center dark:bg-white rounded-xl">
+          <div className="flex flex-col items-center justify-center dark:bg-white rounded-xl ">
             <Bar
               data={{
                 labels: ['Score'],
@@ -158,11 +161,19 @@ const ContentBox = ({
                 },
                 plugins: {
                   legend: {
-                    position: 'top' as const,
+                    position: 'left' as const,
+                    labels: {
+                      font: {
+                        size: 24
+                      }
+                    }
                   },
                   title: {
                     display: true,
                     text: 'Matching Score of following categories',
+                    font: {
+                      size: 24
+                    }
                   }
                 }
               }}
