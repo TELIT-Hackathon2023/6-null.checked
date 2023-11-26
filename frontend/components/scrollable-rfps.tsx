@@ -1,11 +1,9 @@
-"use client"
-
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area"
 import { Separator } from "./ui/separator"
 import { ProposalHoverCard } from "./proposal-hover"
 import { Button } from "./ui/button"
 import { CheckIcon, CircleIcon, TrashIcon } from "lucide-react"
-import { useRouter } from "next/navigation"
+import axios from "axios"
 
 export interface Proposal {
   title: string
@@ -66,24 +64,32 @@ export let proposals: Proposal[] = [
 interface Props {
   currentProposal: { title: string; href: string;} | null;
   setCurrentProposal: any;
+  router: any;
 }
 
-export function ScrollAreaProposal({ currentProposal, setCurrentProposal }: Props) {
-  const router = useRouter();  
-
+export function ScrollAreaProposal({ currentProposal, setCurrentProposal, router }: Props) {
   const deleteItem = (proposal: any) => {    
     proposals.splice(proposals.indexOf(proposal ), 1);
     router.refresh();
   }
+
+  const url = 'http://127.0.0.1:8080/';
+  async function getAnalysedProposal(proposal: Proposal) {
+    setCurrentProposal(proposal);
+
+    const response = await axios.get(`${url}api/analyse`, { params: { href: proposal.href } });
+    console.log(response.data);
+  }
+
   return (
     <ScrollArea className="w-96 h-screen whitespace-nowrap rounded-md border">
       <div className="p-4">
         <h4 className="mb-4 text-sm font-medium leading-none">Requests for proposals</h4>
-        {proposals.map((proposal, index) => (
+        {proposals.map((proposal) => (
           <>
           <div key={proposal.href} className="group flex items-center justify-between">
             <div className="flex items-center space-x-1">
-              <Button onClick={() => setCurrentProposal(proposal)} variant="ghost" size="sm" className="relative w-fit p-2">
+              <Button onClick={() => getAnalysedProposal(proposal)} variant="ghost" size="sm" className="relative w-fit p-2">
                 {currentProposal?.title === proposal.title ? (
                   <>
                     <CircleIcon size={22} className="text-secondary"/>
@@ -96,12 +102,12 @@ export function ScrollAreaProposal({ currentProposal, setCurrentProposal }: Prop
                 )}
               </Button>
               {proposal.title.length > 20 ? (
-                <div key={proposal.href} onClick={() => setCurrentProposal(proposal)} className="w-fit text-sm ">
+                <div key={proposal.href} onClick={() => getAnalysedProposal(proposal)} className="w-fit text-sm ">
                   <ProposalHoverCard title={proposal.title} sliced_title={proposal.title.slice(0, 20) + "..."} />
                 </div>
                 ) : (
                 <div key={proposal.href} className="w-fit text-sm">
-                  <button onClick={() => setCurrentProposal(proposal)} >{proposal.title}</button>
+                  <button onClick={() => getAnalysedProposal(proposal)} >{proposal.title}</button>
                 </div>
               )}
               </div>

@@ -8,9 +8,11 @@ import { useState } from "react";
 import { features } from "@/components/features-menu";
 import { Footer } from "@/components/footer";
 import Navbar from "@/components/navbar";
+import { useRouter } from "next/navigation";
 
 
 export default function Dashboard() {
+  const router = useRouter();  
   const [currentFeature, setCurrentFeature] = useState(features[0])
   const [currentProposal, setCurrentProposal] = useState(null);
 
@@ -22,7 +24,7 @@ export default function Dashboard() {
     <section className="hidden md:block flex-1 max-w-md h-full pl-12 py-8">
       <div className="flex flex-col h-full">
         <ToolbarRFP />
-        <ScrollAreaProposal currentProposal={currentProposal} setCurrentProposal={setCurrentProposal}/>
+        <ScrollAreaProposal currentProposal={currentProposal} setCurrentProposal={setCurrentProposal} router={router}/>
       </div>
     </section>
     {/* Right side */}
