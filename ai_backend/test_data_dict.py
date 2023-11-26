@@ -153,5 +153,92 @@ TEST_DATA_DICT = {
             }
         ]
     },
-    
+    "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFP2203_Software_Development_Services-Final.pdf": {
+        "overall_score": 3.0,
+        "summary": "The primary objectives and goals of the project outlined in the RFP are as follows:\n1. Develop comprehensive software solutions for HOC's Freedom of Information Act (FOIA) Request and Meeting Tracking Systems.\n2. Create business metrics to represent future goals and tie them to organizational processes for improved functions and services.\n3. Integrate HOC's Middleware and Google's G-Suite Platform.\n4. Integrate the software solutions with HOC's website and Yardi Voyager system.\n\nKey technological requirements and specifications include:\n1. Microsoft SQL Server databases, Windows, G-Suite, AWS, HTML, Java, JavaScript, Visual Basic, ASP, .NET, C# (C-Sharp), AODocs, and Voyager by Yardi are currently used technologies and platforms.\n2. The Meeting Tracking System should include specific features such as tenant meeting sign-up, agenda tracking, staff follow-up and complaint tracking, document search, executive dashboard, ADA compliance, and integration with HOC's website and Yardi Voyager system.\n\nCritical functional needs and desired outcomes include:\n1. Consulting and/or training in software development, design, security, programming, strategic planning, process reengineering, and project management.\n2. Complete proposal including qualifications, credentials, certifications, techniques, experience, and resumes/credentials of assigned personnel.\n3. Price proposal.\n4. Compliance with HOC security procedures and background screening requirements.\n5. Proof of liability insurance coverage.\n6. Compliance with HUD forms for contracts receiving FHA or HUD funding.\n7. Promotion of the use of minority/female/disabled firms.\n8. Meeting HOC's evaluation criteria and requirements for Contractors.\n\nCompliance and regulatory standards mentioned include:\n1. Liability insurance requirements for property damage and bodily injury.\n2. Professional liability, automobile liability, fidelity bond or crime insurance, worker's compensation, cyber insurance, privacy and network security coverage.\n3. Compliance with the Maryland Local Government Torts Claims Act.\n4. Background screening requirements for employees and subcontractors working on the project.\n5. Compliance with HUD forms for contracts receiving FHA or HUD funding.\n\nThe specific industry/domain focus of the project is software development services for a public housing agency (HOC) in Montgomery County, Maryland.\n\nMajor deliverables include:\n1. Comprehensive software solutions for HOC's FOIA Request and Meeting Tracking Systems.\n2. Integration of HOC's Middleware and Google's G-Suite Platform.\n3. Integration with HOC's website and Yardi Voyager system.\n\nThe expected timeline is not mentioned in the provided information.\n\nNote: The information provided is based on the available content in the RFP, and additional details may be present in other sections of the document not provided here.",
+        "matching_scores": [
+            {
+                "score": 6.0,
+                "section": "Technology"
+            },
+            {
+                "score": 2.0,
+                "section": "Functional"
+            },
+            {
+                "score": 1.0,
+                "section": "Compliance"
+            },
+            {
+                "score": 3.0,
+                "section": "Domain"
+            }
+        ]
+    },
+    "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RFPDOC_43752.pdf": {
+        "overall_score": 3.0,
+        "summary": "The primary objective of the project outlined in the RFP is to obtain expert professional market analysis services for assessing the fair market lease value of fiber optic right-of-way rental rates owned by the Port Authority of New York and New Jersey. The project requires the consultant to analyze the current value of communication networks, identify potential partners, and recommend commercial agreements.\n\nKey technological requirements and specifications include the need for the consultant to have expertise in fiber optic networks and proficiency in conducting market analysis. The consultant must also be able to analyze data related to right-of-way rental rates and assess market trends in the telecommunications industry.\n\nCritical functional needs and desired outcomes include the consultant attending meetings, providing status reports, and presenting findings to the Authority. The major deliverable of the project is a comprehensive report on fair market rental rates and marketing strategies for fiber optic rights-of-way.\n\nThere are compliance and regulatory standards mentioned in the RFP, including the requirement for the consultant to have commercial liability insurance, automobile liability insurance (if applicable), workers' compensation insurance, and employer's liability insurance. The consultant must also ensure that their insurance policies adhere to specific conditions and provisions outlined in the RFP.\n\nThe specific industry/domain focus of the project is the telecommunications industry, specifically the assessment of fiber optic right-of-way rental rates.\n\nThe major deliverable of the project is a report on fair market rental rates and marketing strategies. The expected timeline for the project is not mentioned in the provided information.\n\nIn summary, the Port Authority of New York and New Jersey is seeking expert professional market analysis services for assessing the fair market lease value of fiber optic right-of-way rental rates. The project requires expertise in the telecommunications industry and proficiency in conducting market analysis. The consultant must provide comprehensive reports and attend meetings to present findings to the Authority. Compliance with insurance requirements and adherence to specific conditions and provisions are also essential.",
+        "matching_scores": [
+            {
+                "score": 3.0,
+                "section": "Technology"
+            },
+            {
+                "score": 6.0,
+                "section": "Functional"
+            },
+            {
+                "score": 1.0,
+                "section": "Compliance"
+            },
+            {
+                "score": 2.0,
+                "section": "Domain"
+            }
+        ]
+    },
+    "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/RequestforInformation_Wastewater_RFP.pdf": {
+        "overall_score": 0.5,
+        "summary": "1. The primary objectives and goals of the project are to secure operation and maintenance services for the water and wastewater facility in West Tennessee, specifically the Blue Oval City site in Haywood and Tipton counties. The State of Tennessee is seeking a long-term public-private partnership that will ensure the smooth functioning of the infrastructure and provide a mutually beneficial relationship for both parties involved.\n\n2. Key technological requirements and specifications include the need for the respondent to provide documentation of maintenance performed on the Authority's equipment according to manufacturer's recommendations. The respondent must also have the capability to implement a safety program and provide training to personnel. Additionally, the respondent should have expertise in regulatory compliance to ensure that the water meets the agreed parameters.\n\n3. Critical functional needs and desired outcomes include staffing and monitoring of the facilities, maintenance and repair of infrastructure and equipment, documentation of maintenance records, and maintaining an inventory of spare parts. The State expects the respondent to establish and implement a safety program and provide training to personnel. The desired outcome is the efficient and effective operation of the water and wastewater facility.\n\n4. The RFP does not mention any specific compliance and regulatory standards. However, the respondent will be responsible for regulatory compliance if the water meets the agreed parameters.\n\n5. The specific industry/domain focus of the project is water and wastewater management, specifically the operation and maintenance of the Blue Oval City site in Haywood and Tipton counties, Tennessee.\n\n6. Major deliverables include staffing and monitoring of the facilities, maintenance and repair services, documentation of maintenance records, and implementation of a safety program. The expected timeline is a ten-year agreement between the Authority and the successful respondent. The pricing and mechanisms for price adjustments will be described by the respondent.\n\nOverall, the State of Tennessee is seeking a long-term partnership to ensure the efficient operation and maintenance of the water and wastewater facility. The respondent should have the technological capabilities, regulatory compliance expertise, and functional needs to meet the objectives and goals outlined in the RFP.",
+        "matching_scores": [
+            {
+                "score": 2.0,
+                "section": "Technology"
+            },
+            {
+                "score": 0.0,
+                "section": "Functional"
+            },
+            {
+                "score": 0.0,
+                "section": "Compliance"
+            },
+            {
+                "score": 0.0,
+                "section": "Domain"
+            }
+        ]
+    },
+    "https://github.com/TELIT-Hackathon2023/6-null.checked/blob/main/ai_backend/data/rfps/rfp%20for%20software%20development%20resources%202023-24%20final.pdf": {
+        "overall_score": 1.5,
+        "summary": "The primary objectives and goals of the project are to empanel vendors for software development resources to support the operations of Union Bank of India. The bank requires experienced entities to undertake software development projects at its head office and various branches and offices across the country.\n\nKey technological requirements and specifications include the need for vendors to possess expertise in software development and relevant technologies. The vendors must have a solid understanding of the banking industry and must be able to develop software solutions that meet the specific requirements of the bank.\n\nCritical functional needs and desired outcomes include the ability to develop software solutions that enhance the efficiency and effectiveness of the bank's operations. Vendors must be able to provide innovative and reliable software solutions that can streamline processes, improve customer experience, and ensure data security.\n\nCompliance and regulatory standards mentioned in the RFP include adherence to cyber security systems, patent rights, minimum wages, and compliance with service level agreement. Vendors are also required to sign an integrity pact and abide by all applicable laws and regulations.\n\nThe specific industry/domain focus of the project is the banking sector. Vendors must have a deep understanding of the banking industry and possess the necessary expertise to develop software solutions tailored to the requirements of a financial institution.\n\nMajor deliverables include the development and implementation of software solutions at Union Bank of India's head office, branches, zonal offices, and regional offices. The expected timelines for the project will be specified in the final contract signed with the selected vendors.\n\nIn summary, Union Bank of India is seeking experienced vendors to provide software development resources. The project aims to enhance the efficiency and effectiveness of the bank's operations through the development and implementation of innovative software solutions. Vendors must possess expertise in software development, adhere to compliance and regulatory standards, and demonstrate a deep understanding of the banking industry. The project has specific deliverables and expected timelines.",
+        "matching_scores": [
+            {
+                "score": 3.0,
+                "section": "Technology"
+            },
+            {
+                "score": 2.0,
+                "section": "Functional"
+            },
+            {
+                "score": 1.0,
+                "section": "Compliance"
+            },
+            {
+                "score": 0.0,
+                "section": "Domain"
+            }
+        ]
+    }
 }

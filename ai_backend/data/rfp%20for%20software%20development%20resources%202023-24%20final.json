@@ -1,0 +1,22 @@
+{
+    "overall_score": 1.5,
+    "summary": "The primary objectives and goals of the project are to empanel vendors for software development resources to support the operations of Union Bank of India. The bank requires experienced entities to undertake software development projects at its head office and various branches and offices across the country.\n\nKey technological requirements and specifications include the need for vendors to possess expertise in software development and relevant technologies. The vendors must have a solid understanding of the banking industry and must be able to develop software solutions that meet the specific requirements of the bank.\n\nCritical functional needs and desired outcomes include the ability to develop software solutions that enhance the efficiency and effectiveness of the bank's operations. Vendors must be able to provide innovative and reliable software solutions that can streamline processes, improve customer experience, and ensure data security.\n\nCompliance and regulatory standards mentioned in the RFP include adherence to cyber security systems, patent rights, minimum wages, and compliance with service level agreement. Vendors are also required to sign an integrity pact and abide by all applicable laws and regulations.\n\nThe specific industry/domain focus of the project is the banking sector. Vendors must have a deep understanding of the banking industry and possess the necessary expertise to develop software solutions tailored to the requirements of a financial institution.\n\nMajor deliverables include the development and implementation of software solutions at Union Bank of India's head office, branches, zonal offices, and regional offices. The expected timelines for the project will be specified in the final contract signed with the selected vendors.\n\nIn summary, Union Bank of India is seeking experienced vendors to provide software development resources. The project aims to enhance the efficiency and effectiveness of the bank's operations through the development and implementation of innovative software solutions. Vendors must possess expertise in software development, adhere to compliance and regulatory standards, and demonstrate a deep understanding of the banking industry. The project has specific deliverables and expected timelines.",
+    "matching_scores": [
+        {
+            "score": 3.0,
+            "section": "Technology"
+        },
+        {
+            "score": 2.0,
+            "section": "Functional"
+        },
+        {
+            "score": 1.0,
+            "section": "Compliance"
+        },
+        {
+            "score": 0.0,
+            "section": "Domain"
+        }
+    ]
+}
