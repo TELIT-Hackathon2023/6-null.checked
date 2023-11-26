@@ -1,17 +1,24 @@
 from openai import OpenAI
 import json
+import re
 
 
 system_instructions = """
     - You will receive a series of data chunks, each labeled as "RFP Data Chunk #X", where X is the chunk's number.
-    - Generate a brief version of the chunk's content with a header "RFP Data Chunk #X".
+    - Generate a brief version of the chunk's content without saying it is a chunk.
 """
 summary_prompt = """
-    Using all your obtained knowledge from the RFP chunks, 
+    Using all your obtained knowledge from the RFP data, 
     make a summary with the key information on a project described in the RFP.
 """
 brief_chunks = []
 
+
+def extract_categories_and_scores(text):
+    pattern = r'(\w+)=([\d\.]+)'
+    matches = re.findall(pattern, text)
+    extracted_data = {category: float(score) for category, score in matches}
+    return extracted_data
 
 def get_client():
     with open("api-key.txt", "r") as f:
@@ -54,10 +61,10 @@ def get_scores(client):
     - Evaluate the similarity between RFP and the company's data in the following categories: Technology, Functional, Compliance, Domain.
     - Assign a similarity score for each category.
     - Scores can be in a simple numeric format (e.g., 1-10, where 10 is the highest similarity).
-    - Present the results in the following format: Category_Name=Score.
+    - Present the results strictly in the following format: CATEGORY_NAME=SCORE.
     """
 
-    scores = None
+    scores = {}
     while not scores:
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
@@ -69,7 +76,7 @@ def get_scores(client):
         )
         print('Gotten response from the scores evaluation:')
         print(response.choices[0].message.content)
-        scores = response.choices[0].message.content
+        scores = extract_categories_and_scores(response.choices[0].message.content)
 
     return scores
 
